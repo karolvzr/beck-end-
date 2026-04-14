@@ -1,23 +1,18 @@
 public class Main {
-    public static void main(String[] arg) {
+    public static void main(String[] args ){
 
-        Personagem p1 = new Mago("Magnus");
-        Personagem p2 = new Cavaleiro("Gabriel");
-        Personagem p3 = new Cacador ("Miguel");
+        Pedido pedido = new Pedido(1, "Karol");
 
-        p1.mostrarStatus();
-        p2.mostrarStatus();
-        p3.mostrarStatus();
+        System.out.println("Pedido criado: "+ pedido.getStatus());
 
-        while (p1.getVida() > 0 & p2.getVida() > 0) {
+        pedido.avancarStatus();
+        System.out.println("Status atualizado"+ pedido.getStatus());
 
-            p1.atacar(p2);
-            p2.atacar(p1);
-            p3.atacar(p1);
-        }
+        pedido.avancarStatus();
+        System.out.println("Status atualizado: " + pedido.getStatus());
 
-        String vencedor = (p1.getVida() > 0) ? p1.getNome() : p2.getNome();
+        pedido.cancelarPedido();
 
-        System.out.println("Vencedor: " + vencedor);
+        System.out.println("Status final: " + pedido.getStatus());
     }
 }
